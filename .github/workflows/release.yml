@@ -57,9 +57,7 @@ jobs:
                     build-args: |
                         "GRAALVM_VERSION=${{ env.GRAALVM_VERSION }}"
                         "PDFTK_VERSION=${{ env.PDFTK_VERSION }}"
-                    tags:
-                        - ${{  format('ghcr.io/{0}:{1}', github.repository, env.PDFTK_VERSION) }}
-                        - ${{  format('ghcr.io/{0}:latest', github.repository) }}
+                    tags: ${{  format('ghcr.io/{0}:{1}', github.repository, env.PDFTK_VERSION) }}, ${{  format('ghcr.io/{0}:latest', github.repository) }}
                     cache-from: type=local,src=/tmp/.buildx-cache
                     cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
 
